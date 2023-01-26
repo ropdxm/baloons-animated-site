@@ -1,0 +1,26 @@
+@mixin style-link($color)
+    display: inline-block
+    text-transform: uppercase
+    text-decoration: none
+    color: $color
+
+@mixin clearfix
+    &::after
+        content: ""
+        display: table
+        clear: both
+
+
+@mixin respond ($breakpoint)
+    @if $breakpoint == phone
+        @media (max-width: 600px )
+            @content
+    @else if $breakpoint == tab-port
+        @media ( max-width: 900px )
+            @content
+    @else if $breakpoint == tab-land
+        @media (max-width: 1240px )
+            @content
+    @else if $breakpoint == big-screen
+        @media (min-width: 1200px )
+            @content
